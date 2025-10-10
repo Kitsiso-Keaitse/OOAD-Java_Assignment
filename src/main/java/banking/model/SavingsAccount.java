@@ -1,4 +1,4 @@
-package banking.model;
+package main.java.banking.model;
 
 public class SavingsAccount extends Account implements InterestBearing {
     public static final double INDIVIDUAL_RATE = 0.025; // 2.5% as per requirements

@@ -1,4 +1,4 @@
-package banking.model;
+package main.java.banking.model;
 
 public class InvestmentAccount extends Account implements InterestBearing, Withdrawable {
     public static final double MONTHLY_RATE = 0.05; // 5% as per requirements

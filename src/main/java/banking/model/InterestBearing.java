@@ -1,4 +1,4 @@
-package banking.model;
+package main.java.banking.model;
 
 public interface InterestBearing {
     double calculateMonthlyInterest();

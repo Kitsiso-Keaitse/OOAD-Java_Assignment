@@ -1,4 +1,4 @@
-package banking.model;
+package main.java.banking.model;
 
 public class ChequeAccount extends Account implements Withdrawable {
     
