@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="15.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="banking.boundary.CustomerDashboardUIController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   
+   <Label fx:id="welcomeLabel" style="-fx-font-weight: bold;" text="Welcome to Your Dashboard">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   
+   <HBox spacing="20.0">
+      <VBox spacing="10.0" prefWidth="300.0">
+         <Label style="-fx-font-weight: bold;" text="Your Accounts" />
+         <ListView fx:id="accountsListView" prefHeight="200.0" />
+         <Button fx:id="viewHistoryButton" mnemonicParsing="false" onAction="#handleViewTransactionHistory" text="View Transaction History" />
+         <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#handleRefreshAccounts" text="Refresh Accounts" />
+      </VBox>
+      
+      <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+         <Label style="-fx-font-weight: bold;" text="Account Details" />
+         <TextArea fx:id="accountDetailsArea" editable="false" prefHeight="120.0" />
+         
+         <Label style="-fx-font-weight: bold;" text="Quick Actions" />
+         <HBox spacing="10.0">
+            <Button fx:id="depositButton" mnemonicParsing="false" onAction="#handleDeposit" text="Deposit" />
+            <Button fx:id="withdrawButton" mnemonicParsing="false" onAction="#handleWithdraw" text="Withdraw" />
+            <Button fx:id="transferButton" mnemonicParsing="false" onAction="#handleTransfer" text="Transfer" />
+         </HBox>
+      </VBox>
+   </HBox>
+   
+   <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" style="-fx-background-color: #DC143C; -fx-text-fill: white;" text="Logout" />
+</VBox>

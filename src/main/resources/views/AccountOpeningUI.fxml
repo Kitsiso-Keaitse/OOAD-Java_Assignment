@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="15.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="banking.boundary.AccountOpeningUIController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   
+   <Label style="-fx-font-weight: bold;" text="Open New Account">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   
+   <VBox spacing="10.0">
+      <Label text="Select Customer:" style="-fx-font-weight: bold;" />
+      <HBox spacing="10.0">
+         <TextField fx:id="customerIdField" promptText="Customer ID" prefWidth="150.0" />
+         <Button fx:id="searchCustomerButton" mnemonicParsing="false" onAction="#handleSearchCustomer" text="Search" />
+         <Label fx:id="customerNameLabel" text="No customer selected" style="-fx-text-fill: #666;" />
+      </HBox>
+   </VBox>
+   
+   <VBox spacing="10.0">
+      <Label text="Account Type:" style="-fx-font-weight: bold;" />
+      <ComboBox fx:id="accountTypeComboBox" prefWidth="200.0" />
+   </VBox>
+   
+   <VBox spacing="10.0">
+      <Label text="Initial Deposit:" style="-fx-font-weight: bold;" />
+      <TextField fx:id="initialDepositField" promptText="Enter initial deposit amount" prefWidth="200.0" />
+      <Label fx:id="minDepositLabel" text="" style="-fx-text-fill: #666; -fx-font-size: 12px;" />
+   </VBox>
+   
+   <VBox spacing="10.0" fx:id="chequeAccountSection" visible="false">
+      <Label text="Employment Details (for Cheque Account):" style="-fx-font-weight: bold;" />
+      <HBox spacing="10.0">
+         <TextField fx:id="employerField" promptText="Employer Name" prefWidth="150.0" />
+         <TextField fx:id="employerAddressField" promptText="Employer Address" prefWidth="200.0" />
+      </HBox>
+      <RadioButton fx:id="employedYesRadio" text="Employed" />
+      <RadioButton fx:id="employedNoRadio" text="Not Employed" />
+   </VBox>
+   
+   <VBox spacing="10.0" fx:id="investmentAccountSection" visible="false">
+      <Label text="Investment Account Requirements:" style="-fx-font-weight: bold; -fx-text-fill: #2E8B57;" />
+      <Label text="• Minimum opening balance: BWP 500.00" style="-fx-font-size: 12px;" />
+      <Label text="• Monthly interest rate: 5%" style="-fx-font-size: 12px;" />
+   </VBox>
+   
+   <VBox spacing="10.0" fx:id="savingsAccountSection" visible="false">
+      <Label text="Savings Account Features:" style="-fx-font-weight: bold; -fx-text-fill: #2E8B57;" />
+      <Label text="• Monthly interest rate: 0.05%" style="-fx-font-size: 12px;" />
+      <Label text="• No withdrawals allowed" style="-fx-font-size: 12px;" />
+   </VBox>
+   
+   <Label fx:id="errorLabel" style="-fx-text-fill: red;" visible="false" />
+   <Label fx:id="successLabel" style="-fx-text-fill: #2E8B57;" visible="false" />
+   
+   <HBox spacing="10.0">
+      <Button fx:id="createAccountButton" mnemonicParsing="false" onAction="#handleCreateAccount" style="-fx-background-color: #2E8B57; -fx-text-fill: white;" text="Create Account" />
+      <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
+      <Button fx:id="clearButton" mnemonicParsing="false" onAction="#handleClear" text="Clear Form" />
+   </HBox>
+</VBox>

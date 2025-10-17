@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="15.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="banking.boundary.BankClerkDashboardUIController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   
+   <Label style="-fx-font-weight: bold;" text="Bank Clerk Dashboard">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Label>
+   
+   <TabPane prefHeight="400.0">
+      <Tab text="Customer Management">
+         <VBox spacing="10.0">
+            <HBox spacing="10.0">
+               <TextField fx:id="searchCustomerField" promptText="Search by Customer ID or Name" prefWidth="300.0" />
+               <Button fx:id="searchButton" mnemonicParsing="false" onAction="#handleSearchCustomer" text="Search" />
+               <Button fx:id="newCustomerButton" mnemonicParsing="false" onAction="#handleNewCustomer" style="-fx-background-color: #2E8B57; -fx-text-fill: white;" text="New Customer" />
+            </HBox>
+            
+            <TableView fx:id="customersTable" prefHeight="300.0">
+               <columns>
+                  <TableColumn fx:id="custIdColumn" prefWidth="80.0" text="ID" />
+                  <TableColumn fx:id="custNameColumn" prefWidth="150.0" text="Name" />
+                  <TableColumn fx:id="custTypeColumn" prefWidth="100.0" text="Type" />
+                  <TableColumn fx:id="custAddressColumn" prefWidth="200.0" text="Address" />
+                  <TableColumn fx:id="custAccountsColumn" prefWidth="100.0" text="Accounts" />
+               </columns>
+            </TableView>
+            
+            <Label text="Customer Details:" style="-fx-font-weight: bold;" />
+            <TextArea fx:id="customerDetailsArea" editable="false" prefHeight="100.0" />
+            
+            <HBox spacing="10.0">
+               <Button fx:id="viewCustomerDetailsButton" mnemonicParsing="false" onAction="#handleViewCustomerDetails" text="View Details" />
+               <Button fx:id="openAccountButton" mnemonicParsing="false" onAction="#handleOpenAccount" text="Open New Account" />
+               <Button fx:id="editCustomerButton" mnemonicParsing="false" onAction="#handleEditCustomer" text="Edit Customer" />
+            </HBox>
+         </VBox>
+      </Tab>
+      
+      <Tab text="Account Management">
+         <VBox spacing="10.0">
+            <Label text="Pending Account Applications" style="-fx-font-weight: bold;" />
+            <ListView fx:id="pendingAccountsList" prefHeight="150.0" />
+            
+            <Label text="Account Actions" style="-fx-font-weight: bold;" />
+            <HBox spacing="10.0">
+               <Button fx:id="approveAccountButton" mnemonicParsing="false" onAction="#handleApproveAccount" style="-fx-background-color: #2E8B57; -fx-text-fill: white;" text="Approve Account" />
+               <Button fx:id="rejectAccountButton" mnemonicParsing="false" onAction="#handleRejectAccount" style="-fx-background-color: #DC143C; -fx-text-fill: white;" text="Reject Account" />
+               <Button fx:id="closeAccountButton" mnemonicParsing="false" onAction="#handleCloseAccount" text="Close Account" />
+            </HBox>
+            
+            <Label text="All Accounts" style="-fx-font-weight: bold;" />
+            <TableView fx:id="allAccountsTable" prefHeight="200.0">
+               <columns>
+                  <TableColumn fx:id="accNumberColumn" prefWidth="100.0" text="Account No" />
+                  <TableColumn fx:id="accTypeColumn" prefWidth="120.0" text="Type" />
+                  <TableColumn fx:id="accBalanceColumn" prefWidth="100.0" text="Balance" />
+                  <TableColumn fx:id="accCustomerColumn" prefWidth="150.0" text="Customer" />
+                  <TableColumn fx:id="accStatusColumn" prefWidth="80.0" text="Status" />
+               </columns>
+            </TableView>
+         </VBox>
+      </Tab>
+   </TabPane>
+   
+   <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" style="-fx-background-color: #696969; -fx-text-fill: white;" text="Logout" />
+</VBox>
